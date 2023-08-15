@@ -47,6 +47,41 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
 
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section {
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .section-content {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
     h1 {
       font-family: 'SF Pro Display', Arial, sans-serif;
       font-size: 24px;
@@ -82,7 +117,8 @@
     <source src="background.mp4" type="video/mp4">
   </video>
 
-  <div class="translucent-panel">
+  <!-- Section 1: Existing content with animation -->
+  <div class="translucent-panel fade-in">
     <h1>CodeCraft - HTML Editor</h1>
     <p>An HTML editor with syntax highlighting and live output window.</p>
     <p><strong>Introducing CodeCraft: Your Ultimate HTML Editor</strong></p>
@@ -95,6 +131,29 @@
       CodeCraft understands the importance of clean and readable code. That's why we've implemented comprehensive syntax highlighting for HTML, CSS, and JavaScript. Enjoy a color-coded display that highlights different elements, tags, attributes, and properties, ensuring your code is visually appealing and easy to comprehend.</p>
     <p>CodeCraft is the go-to HTML editor for developers who seek efficiency, productivity, and an enjoyable coding experience. Download CodeCraft today and unlock your web development potential like never before. Start crafting beautiful, dynamic, and responsive websites with ease. Happy coding!</p>
     <a class="download-button" href="https://github.com/agastya-hukoo/Code-Craft/releases">Download Now</a>
+  </div>
+
+  <!-- Section 2: New content with animation -->
+  <div class="section fade-in">
+    <div class="section-title">Our Features</div>
+    <div class="section-content">
+      <p>Discover the amazing features that set CodeCraft apart:</p>
+      <ul>
+        <li>Powerful and Intuitive Interface</li>
+        <li>Live Output Previews</li>
+        <li>Syntax Highlighting</li>
+        <li>And much more...</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 3: New content with animation -->
+  <div class="section fade-in">
+    <div class="section-title">Download Now</div>
+    <div class="section-content">
+      <p>Ready to get started? Download CodeCraft now and unlock your web development potential like never before.</p>
+      <a class="download-button" href="https://github.com/agastya-hukoo/Code-Craft/releases">Download Now</a>
+    </div>
   </div>
 </body>
 
