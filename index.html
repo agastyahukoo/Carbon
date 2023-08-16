@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Craft</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <style>
         /* General styles */
         body, html {
@@ -83,12 +84,17 @@
 <body>
 
 <!-- First Section -->
-<section id="intro">
-    <video autoplay loop muted>
+<section style="display: flex; justify-content: center; align-items: center; height: 100vh; position: relative; overflow: hidden;">
+    <!-- Background Video -->
+    <video autoplay loop muted style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -1; transform: translate(-50%, -50%);">
         <source src="background.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <h1 class="typing">Code Craft</h1>
+    
+    <!-- App Title with Typing Animation -->
+    <div style="font-family: 'Roboto', sans-serif; font-size: 3em; z-index: 1;">
+        <span id="app-title"></span>
+    </div>
 </section>
 
 <!-- Second Section -->
