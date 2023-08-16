@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Craft</title>
+    <style>
+        /* General styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* First section styles */
+        #intro {
+            position: relative;
+            color: white;
+            overflow: hidden;
+        }
+
+        #intro video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        /* Typing effect */
+        .typing {
+            border-right: .15em solid;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(30, end), blink 1s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Second section styles */
+        #features {
+            background-color: black;
+            color: white;
+        }
+
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s;  /* Adjust fade-in duration here */
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<!-- First Section -->
+<section id="intro">
+    <video autoplay loop muted>
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h1 class="typing">Code Craft</h1>
+</section>
+
+<!-- Second Section -->
+<section id="features" class="fade-in" style="flex-direction: column; align-items: flex-start;">
+    <h2>🚀 Why Choose CodeCraft?</h2>
+    <p>
+        CodeCraft isn't just a tool; it's your gateway to a world of exceptional web development. Here's why it stands out:
+    </p>
+    <ul>
+        <li>✨ <strong>Refined Workflow:</strong> Bid farewell to complexity and embrace a streamlined workflow that empowers you to create masterpieces without distraction. CodeCraft's interface is the epitome of elegance, offering an intuitive experience that amplifies your productivity.</li>
+        <li>🎨 <strong>Unleash Creativity:</strong> CodeCraft is more than a code editor; it's a playground for your imagination. Effortlessly bring your ideas to life, experiment fearlessly, and turn your concepts into captivating web experiences that resonate with your audience.</li>
+        <li>💡 <strong>Amplify Potential:</strong> Whether you're a seasoned developer or a newcomer to the coding world, CodeCraft amplifies your potential. From expert coding to learning the ropes, this tool caters to your skill level and enhances your growth journey.</li>
+        <li>📱 <strong>Seamless Responsiveness:</strong> Crafting responsive websites is no longer a daunting task. With CodeCraft, your creations seamlessly adapt to various screen sizes, ensuring a flawless user experience across devices.</li>
+    </ul>
+    
+    <h3>⚙️ Getting Started</h3>
+    <p>
+        Embark on your journey with CodeCraft using these simple steps:
+    </p>
+    <ol>
+        <li>📥 Download CodeCraft and install it seamlessly on your system.</li>
+        <li>✨ Launch the app to unveil an interface designed for the discerning developer. Your coding haven awaits.</li>
+        <li>🌐 Unleash your coding prowess effortlessly. CodeCraft's advanced features are designed to elevate your coding while keeping it delightfully user-friendly.</li>
+    </ol>
+
+    <h3>🎉 Join the CodeCraft Community</h3>
+    <p>
+        Forge connections, seek guidance, and celebrate your successes within our thriving developer community. By joining the CodeCraft Discord community, you tap into a network of like-minded individuals passionate about crafting exceptional digital experiences.
+    </p>
+    <a href="https://discord.com" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #7289DA; color: white; border-radius: 5px; text-decoration: none;">👉 Join the CodeCraft Discord Community</a>
+
+    <h3>🌟 Elevate Your Coding Experience</h3>
+    <p>
+        Are you prepared to transcend the ordinary and embrace coding excellence? Download CodeCraft now and embark on a journey where web development becomes an art form. Elevate your coding prowess, sculpt your digital visions, and usher in a new era of web development sophistication.
+    </p>
+    <a href="#download-link" style="display: inline-block; padding: 15px 30px; background-color: #333; color: white; border-radius: 5px; margin-top: 20px; text-decoration: none;">Download CodeCraft</a>
+    <p>
+        Elevate your craft. Elevate with CodeCraft. 🚀
+    </p>
+</section>
+
+
+
+<script>
+    // Typing animation for title
+    let typedText = "Code Craft";
+    let typedOutput = "";
+    let typeIndex = 0;
+
+    function type() {
+        if (typeIndex < typedText.length) {
+            typedOutput += typedText.charAt(typeIndex);
+            document.querySelector('.typing').textContent = typedOutput;
+            typeIndex++;
+            setTimeout(type, 150);  // Adjust the typing speed here
+        }
+    }
+
+    // Initialize typing
+    type();
+
+    // Intersection Observer for fade-in effect
+    let observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1  // Adjust if needed, 0.1 means at least 10% of the target is visible
+    };
+
+    let fadeInObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Attach observer to the sections with fade-in class
+    document.querySelectorAll('.fade-in').forEach(section => {
+        fadeInObserver.observe(section);
+    });
+</script>
+</body>
+</html>
