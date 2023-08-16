@@ -46,12 +46,11 @@
         }
 
         /* Typing effect */
-        .typing {
-            border-right: .15em solid;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typing 4s steps(30, end), blink 1s step-end infinite;
-        }
+.typing {
+    color: white;
+    font-size: 3em;
+    text-align: center;
+}
 
         @keyframes typing {
             from {
@@ -88,13 +87,18 @@
 <body>
 
 <!-- First Section -->
-<section id="intro">
-    <video autoplay loop muted>
+<section id="intro" style="position: relative; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <video autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;">
         <source src="background.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <h1 class="typing">Code Craft</h1>
+
+    <!-- Translucent Black Panel with Title -->
+    <div style="background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px;">
+        <h1 class="typing" style="margin: 0;">Code Craft</h1>
+    </div>
 </section>
+
 
 
 <!-- Second Section -->
