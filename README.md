@@ -1,7 +1,7 @@
-# CodeCraft App README
+# Carbon README
 
 ## Overview
-CodeCraft is a streamlined Windows Forms application for real-time HTML editing and previewing. It integrates a text editor, browser preview, and custom settings, enhancing the coding experience.
+Carbon (previosuly CodeCraft) is a streamlined Windows Forms application for real-time HTML editing and previewing. It integrates a text editor, browser preview, and custom settings, enhancing the coding experience.
 
 ## Features
 
