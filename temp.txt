@@ -1,42 +1,30 @@
-using System;
-using System.Drawing;
-using System.Drawing.Text;
-using System.IO;
-using System.Reflection;
-using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
-public static class CustomFontProvider
+public class MainForm : Form
 {
-    private static readonly PrivateFontCollection PrivateFonts = new PrivateFontCollection();
-
-    static CustomFontProvider()
+    public MainForm()
     {
-        LoadCustomFont();
+        // Initialize your form's components
+        InitializeComponent();
+        
+        // Apply the custom font to all controls on this form
+        ApplyCustomFont(this);
     }
 
-    private static void LoadCustomFont()
+    private void ApplyCustomFont(Control control)
     {
-        var fontResourceName = "YourNamespace.font.OTF"; // Adjust the namespace and path as necessary
-
-        using (Stream fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(fontResourceName))
+        // Apply the font to the control if it's a type that contains text
+        if (control is Button || control is Label) // Add more control types as needed
         {
-            if (fontStream == null)
-            {
-                throw new Exception($"Error accessing resource {fontResourceName}.");
-            }
+            control.Font = CustomFontProvider.GetCustomFont(12); // Specify your desired size
+        }
 
-            byte[] fontData = new byte[fontStream.Length];
-            fontStream.Read(fontData, 0, (int)fontStream.Length);
-
-            IntPtr fontPtr = Marshal.AllocCoTaskMem((int)fontStream.Length);
-            Marshal.Copy(fontData, 0, fontPtr, (int)fontStream.Length);
-            PrivateFonts.AddMemoryFont(fontPtr, (int)fontStream.Length);
-            Marshal.FreeCoTaskMem(fontPtr);
+        // Recursively apply the font to child controls
+        foreach (Control child in control.Controls)
+        {
+            ApplyCustomFont(child);
         }
     }
 
-    public static Font GetCustomFont(float size, FontStyle style = FontStyle.Regular)
-    {
-        return new Font(PrivateFonts.Families[0], size, style);
-    }
+    // Your form's other methods and events
 }
