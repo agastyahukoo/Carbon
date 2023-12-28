@@ -1,0 +1,42 @@
+using System;
+using System.Drawing;
+using System.Drawing.Text;
+using System.IO;
+using System.Reflection;
+using System.Runtime.InteropServices;
+
+public static class CustomFontProvider
+{
+    private static readonly PrivateFontCollection PrivateFonts = new PrivateFontCollection();
+
+    static CustomFontProvider()
+    {
+        LoadCustomFont();
+    }
+
+    private static void LoadCustomFont()
+    {
+        var fontResourceName = "YourNamespace.font.OTF"; // Adjust the namespace and path as necessary
+
+        using (Stream fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(fontResourceName))
+        {
+            if (fontStream == null)
+            {
+                throw new Exception($"Error accessing resource {fontResourceName}.");
+            }
+
+            byte[] fontData = new byte[fontStream.Length];
+            fontStream.Read(fontData, 0, (int)fontStream.Length);
+
+            IntPtr fontPtr = Marshal.AllocCoTaskMem((int)fontStream.Length);
+            Marshal.Copy(fontData, 0, fontPtr, (int)fontStream.Length);
+            PrivateFonts.AddMemoryFont(fontPtr, (int)fontStream.Length);
+            Marshal.FreeCoTaskMem(fontPtr);
+        }
+    }
+
+    public static Font GetCustomFont(float size, FontStyle style = FontStyle.Regular)
+    {
+        return new Font(PrivateFonts.Families[0], size, style);
+    }
+}
