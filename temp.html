@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Craft</title>
+    <style>
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('GitHub/SF-Pro-Display.otf') format('opentype');
+        }
+
+        body {
+            font-family: 'SF Pro Display', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        .fullscreen-header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .fullscreen-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Typing effect */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
+        }
+
+        .fullscreen-header h1 span, .fullscreen-header p span {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid orange; /* The typewriter cursor */
+            animation: typing 0.5s steps(40, end), blink-caret 0.75s step-end infinite;
+            /* Adjust the timing of each letter here */
+            animation-delay: var(--delay, 0s);
+        }
+
+        /* Specify the delay for each letter */
+        .fullscreen-header h1 span:nth-child(1) { --delay: 0.5s; }
+        .fullscreen-header h1 span:nth-child(2) { --delay: 0.6s; }
+        .fullscreen-header h1 span:nth-child(3) { --delay: 0.7s; }
+        /* ...continue for each letter */
+        .fullscreen-header p span:nth-child(1) { --delay: 3s; } /* Start after the title is done */
+        .fullscreen-header p span:nth-child(2) { --delay: 3.1s; }
+        .fullscreen-header p span:nth-child(3) { --delay: 3.2s; }
+        /* ...continue for each letter in the description */
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .download-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #3bccff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .features-section {
+            margin-top: 30px;
+        }
+
+        .features-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video Background -->
+    <div class="fullscreen-header">
+        <video class="fullscreen-video" autoplay loop muted>
+            <source src="background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1>
+            <span>C</span><span>o</span><span>d</span><span>e</span>&nbsp;<span>C</span><span>r</span><span>a</span><span>f</span><span>t</span>
+        </h1>
+        <p>
+            <span>A</span><span>&nbsp;</span><span>b</span><span>r</span><span>i</span><span>e</span><span>f</span>&nbsp;<span>d</span><span>e</span><span>s</span><span>c</span><span>r</span><span>i</span><span>p</span><span>t</span><span>i</span><span>o</span><span>n</span>&nbsp;<span>o</span><span>f</span>&nbsp;<span>y</span><span>o</span><span>u</span><span>r</span>&nbsp;<span>a</span><span>p</span><span>p</span><span>.</span>
+        </p>
+    </div>
+
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="background.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <main>
+        <!-- Main content goes here -->
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Code Craft. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
