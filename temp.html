@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Craft</title>
     <style>
@@ -39,12 +40,22 @@
             z-index: -1;
         }
 
+        h1.typing-effect {
+            font-size: 48px; /* Increased font size */
+            margin: 0 0 20px;
+        }
+
+        p.typing-effect {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
         .typing-effect {
             display: inline-block;
-            border-right: 2px solid orange; /* The typewriter cursor */
+            border-right: 3px solid orange; /* The typewriter cursor */
             white-space: nowrap;
             overflow: hidden;
-            animation: typing 10s steps(60, end), blink-caret 0.75s step-end infinite;
+            animation: typing 6s steps(100, end), blink-caret 0.75s step-end infinite;
         }
 
         /* Typing animation */
@@ -105,8 +116,8 @@
             <source src="background.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <h1 class="typing-effect">Carbon</h1>
-        <p class="typing-effect">Rebuilt & Reimagined</p>
+        <h1 class="typing-effect">Code Craft</h1>
+        <p class="typing-effect">A brief description of your app.</p>
     </div>
 
     <!-- Background Music -->
