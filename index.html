@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Craft</title>
+    <title>Carbon</title>
     <style>
         @font-face {
             font-family: 'SF Pro Display';
@@ -39,16 +40,34 @@
             z-index: -1;
         }
 
-        .fullscreen-header h1 {
-            font-size: 36px;
-            margin: 0;
-            z-index: 1;
+        h1.typing-effect {
+            font-size: 48px; /* Increased font size */
+            margin: 0 0 10px; /* Reduced bottom margin */
         }
 
-        .fullscreen-header p {
-            font-size: 18px;
-            opacity: 0.8;
-            z-index: 1;
+        p.typing-effect {
+            font-size: 24px;
+            margin: 0; /* Reduced top margin */
+        }
+
+        .typing-effect {
+            display: inline-block;
+            border-right: 3px solid orange; /* The typewriter cursor */
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 6s steps(100, end), blink-caret 0.75s step-end infinite;
+        }
+
+        /* Typing animation */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Cursor animations */
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
         }
 
         main {
@@ -97,8 +116,8 @@
             <source src="background.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <h1>Code Craft</h1>
-        <p>A brief description of your app.</p>
+        <h1 class="typing-effect">Carbon</h1>
+        <p class="typing-effect">Rebuilt & Reimagined</p>
     </div>
 
     <!-- Background Music -->
@@ -106,7 +125,6 @@
         <source src="background.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-
 
     <main>
                 <section class="info-section">
@@ -149,6 +167,7 @@
             </ul>
         </section>
     </main>
+
 
     <footer>
         <p>&copy; 2023 Code Craft. All rights reserved.</p>
