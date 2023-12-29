@@ -39,36 +39,25 @@
             z-index: -1;
         }
 
-        /* Typing effect */
+        .typing-effect {
+            display: inline-block;
+            border-right: 2px solid orange; /* The typewriter cursor */
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+
+        /* Typing animation */
         @keyframes typing {
             from { width: 0; }
             to { width: 100%; }
         }
 
+        /* Cursor animations */
         @keyframes blink-caret {
             from, to { border-color: transparent; }
             50% { border-color: orange; }
         }
-
-        .fullscreen-header h1 span, .fullscreen-header p span {
-            display: inline-block;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 3px solid orange; /* The typewriter cursor */
-            animation: typing 0.5s steps(40, end), blink-caret 0.75s step-end infinite;
-            /* Adjust the timing of each letter here */
-            animation-delay: var(--delay, 0s);
-        }
-
-        /* Specify the delay for each letter */
-        .fullscreen-header h1 span:nth-child(1) { --delay: 0.5s; }
-        .fullscreen-header h1 span:nth-child(2) { --delay: 0.6s; }
-        .fullscreen-header h1 span:nth-child(3) { --delay: 0.7s; }
-        /* ...continue for each letter */
-        .fullscreen-header p span:nth-child(1) { --delay: 3s; } /* Start after the title is done */
-        .fullscreen-header p span:nth-child(2) { --delay: 3.1s; }
-        .fullscreen-header p span:nth-child(3) { --delay: 3.2s; }
-        /* ...continue for each letter in the description */
 
         main {
             max-width: 800px;
@@ -116,12 +105,8 @@
             <source src="background.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <h1>
-            <span>C</span><span>o</span><span>d</span><span>e</span>&nbsp;<span>C</span><span>r</span><span>a</span><span>f</span><span>t</span>
-        </h1>
-        <p>
-            <span>A</span><span>&nbsp;</span><span>b</span><span>r</span><span>i</span><span>e</span><span>f</span>&nbsp;<span>d</span><span>e</span><span>s</span><span>c</span><span>r</span><span>i</span><span>p</span><span>t</span><span>i</span><span>o</span><span>n</span>&nbsp;<span>o</span><span>f</span>&nbsp;<span>y</span><span>o</span><span>u</span><span>r</span>&nbsp;<span>a</span><span>p</span><span>p</span><span>.</span>
-        </p>
+        <h1 class="typing-effect">Code Craft</h1>
+        <p class="typing-effect">A brief description of your app.</p>
     </div>
 
     <!-- Background Music -->
@@ -131,47 +116,8 @@
     </audio>
 
     <main>
-                <section class="info-section">
-            <h2>Welcome to CodeCraft</h2>
-            <p>CodeCraft is a streamlined Windows Forms application designed for real-time HTML editing and previewing. It integrates a text editor, browser preview, and custom settings, enhancing your coding experience with a sleek, dark interface.</p>
-            
-            <h3>Quick Start</h3>
-            <p>Edit & Preview: Write HTML on the left and see it live on the right. Use the toolbar for file operations and settings. Customize themes and music from the settings menu.</p>
-
-            <h3>Dependencies</h3>
-            <ul>
-                <li>.NET Framework: Latest version.</li>
-                <li>CefSharp: For browser preview.</li>
-                <li>FastColoredTextBox: For enhanced text editing.</li>
-            </ul>
-
-            <h3>Contributing</h3>
-            <p>Fork & Pull Request: Contributions are welcome. Please adhere to standard coding practices.</p>
-
-            <h3>License</h3>
-            <p>[Your License Here]: Typically MIT or another open-source license.</p>
-        </section>
-
-<section class="download-section">
-    <h2>Download CodeCraft</h2>
-    <p>Streamline your HTML editing and previewing experience with CodeCraft.</p>
-    <div class="download-buttons">
-        <a href="https://agastyahukoo.github.io/Code-Craft/" class="download-button">Download for Windows</a>
-    </div>
-</section>
-
-
-        <section class="features-section">
-            <h2>Key Features</h2>
-            <ul>
-                <li>Feature 1</li>
-                <li>Feature 2</li>
-                <li>Feature 3</li>
-                <!-- Add more features here -->
-            </ul>
-        </section>
+        <!-- Main content goes here -->
     </main>
-
 
     <footer>
         <p>&copy; 2023 Code Craft. All rights reserved.</p>
