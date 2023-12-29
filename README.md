@@ -46,8 +46,8 @@ Carbon (previosuly CodeCraft) is a streamlined Windows Forms application for rea
 
 ## License
 
-- **[Your License Here]**: Typically MIT or another open-source license.
+- **MIT License**: MIT License
 
 ---
 
-This concise README is designed to get you up and running with CodeCraft quickly. For more detailed documentation, refer to the in-code comments and official libraries' documentation.
+This concise README is designed to get you up and running with Carbon quickly. For more detailed documentation, refer to the in-code comments and official libraries' documentation.
