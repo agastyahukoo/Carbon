@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carbon", "Carbon\Carbon.csproj", "{4F5CD9D6-F807-49F7-A29D-CA3BBEABECED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F5CD9D6-F807-49F7-A29D-CA3BBEABECED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F5CD9D6-F807-49F7-A29D-CA3BBEABECED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F5CD9D6-F807-49F7-A29D-CA3BBEABECED}.Debug|x64.ActiveCfg = Debug|x64
+		{4F5CD9D6-F807-49F7-A29D-CA3BBEABECED}.Debug|x64.Build.0 = Debug|x64
+		{4F5CD9D6-F807-49F7-A29D-CA3BBEABECED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F5CD9D6-F807-49F7-A29D-CA3BBEABECED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F5CD9D6-F807-49F7-A29D-CA3BBEABECED}.Release|x64.ActiveCfg = Release|x64
+		{4F5CD9D6-F807-49F7-A29D-CA3BBEABECED}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2141FE28-CE44-47E1-8CF2-706B72D7620D}
+	EndGlobalSection
+EndGlobal
