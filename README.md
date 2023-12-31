@@ -23,7 +23,7 @@ Carbon (previosuly CodeCraft) is a streamlined Windows Forms application for rea
 
 ## Installation
 
-1. **Download**: Get the latest version of Carbon [here](https://agastyahukoo.github.io/Code-Craft/).
+1. **Download**: Get the latest version of Carbon [here](https://agastyahukoo.github.io/Carbon/).
 2. **Open in Visual Studio**: The app is built with C# Windows Forms.
 3. **Restore Dependencies**: Particularly CefSharp and FastColoredTextBox.
 4. **Build & Run**: Compile and address any issues before running.
