@@ -1,56 +1,51 @@
-# SECURITY.md
-
----
-
 ## Security Policy for Carbon IDE
 
-At Carbon, we take the security of our software and the trust of our users very seriously. This document outlines our security protocols and procedures, as well as how you can report vulnerabilities or security concerns. Our goal is to ensure that Carbon remains a reliable and safe tool for everyone.
+Thank you for using or contributing to Carbon, a lightweight Integrated Development Environment (IDE) designed for ease and efficiency in HTML development and testing. This document outlines our approach to security and how you can report potential vulnerabilities.
 
 ### Supported Versions
 
-Security updates and patches will only be provided for the most recent version of Carbon. Users are encouraged to update to the latest version as soon as possible to ensure they have the most secure and stable build.
+We are committed to patching the latest version of Carbon IDE. Users are encouraged to update to the latest version as soon as possible.
 
 | Version | Supported          |
 | ------- | ------------------ |
 | Latest  | :white_check_mark: |
-| Older   | :x:                |
 
 ### Reporting a Vulnerability
 
-If you believe you've discovered a potential security issue in Carbon, we ask that you report it to us as discreetly and responsibly as possible. Please do not disclose the issue publicly until it has been addressed by our team.
+If you believe you have found a security issue in Carbon, please report it to us by following these steps:
 
-**To report a security issue, please follow these steps:**
+1. **Email**: Send a detailed report in the discussions tab. Please include as much information as possible to help us understand the nature and scope of the issue.
 
-1. **Email us directly**: Send a detailed report to us. Include as much information as possible about the potential vulnerability, how it might be exploited, and any other relevant details.
-  
-2. **Wait for our response**: Our team will review your report and respond as quickly as possible. We may ask for additional information or guidance on how to replicate the issue.
+2. **Discretion**: Please do not disclose the issue publicly until we have had a chance to address it.
 
-3. **Disclosure**: Once the issue has been resolved, we will work with you to publicly disclose the vulnerability in a responsible manner, crediting you for the discovery if you wish.
+3. **Patience**: We appreciate your patience while we work on your report. We will respond as quickly as possible.
 
-### Security Best Practices
+### Potential Security Areas in Carbon
 
-As a contributor or user of Carbon, you can help keep the software secure by following these best practices:
+Given the nature of the application, here are specific areas where security might be a concern:
 
-- **Keep your environment secure**: Ensure your operating system and any software you use in conjunction with Carbon are up to date and securely configured.
+1. **Code Execution in CefSharp**: 
+   - **Risk**: If the application inadvertently loads malicious HTML or JavaScript, it might execute harmful code.
+   - **Mitigation**: Ensure that the browser component only loads trusted content and consider implementing content security policies.
 
-- **Handle sensitive data with care**: Be cautious when dealing with sensitive information and ensure that it's never exposed in the project's public repositories or logs.
+2. **File Handling**:
+   - **Risk**: Opening, saving, or executing files could potentially introduce vulnerabilities if not handled correctly, such as path traversal attacks.
+   - **Mitigation**: Implement strict path and input validation to ensure only intended operations are performed.
 
-- **Stay informed**: Keep an eye on Carbon's updates and security advisories. Update promptly to benefit from the latest security patches.
+3. **Custom Fonts Loading**:
+   - **Risk**: Loading custom fonts from untrusted sources might pose a security risk.
+   - **Mitigation**: Validate and sanitize the source of the fonts and ensure they come from a trusted source.
 
-- **Follow coding best practices**: If you're contributing code, ensure you're familiar with secure coding practices relevant to C# and .NET development.
+4. **Updates and Patches**:
+   - **Risk**: Outdated software might contain unpatched vulnerabilities.
+   - **Mitigation**: Regularly update dependencies, especially CefSharp, and provide an easy update mechanism for the end-users.
 
-### Security Within Carbon
+### Security Best Practices for Users
 
-Here's how we're working to keep Carbon secure:
-
-- **Regular Audits**: The Carbon team regularly reviews and audits the codebase for security vulnerabilities.
-
-- **Dependency Tracking**: We keep track of the libraries and dependencies Carbon uses and ensure they are up to date with the latest security patches.
-
-- **Community Involvement**: We encourage the community to participate in making Carbon more secure by reporting vulnerabilities and contributing to the codebase.
+- **Stay Updated**: Always use the latest version of Carbon.
+- **Trusted Sources**: Only load content and fonts from sources you trust.
+- **Regular Backups**: Keep regular backups of your projects and settings.
 
 ### Conclusion
 
-Security is a collective effort, and we value the role each member of the community plays in helping keep Carbon safe and secure. By following these guidelines and contributing to the security of Carbon, you're helping us provide a better, safer IDE for everyone. If you have any questions or suggestions regarding this policy, please feel free to contact us.
-
-Thank you for being a part of the Carbon community!
+Security is a shared responsibility. While we strive to keep Carbon secure, we also rely on our users and contributors to use the application responsibly and report any suspicious behavior or potential vulnerabilities. Together, we can keep Carbon a safe and reliable tool for everyone.
