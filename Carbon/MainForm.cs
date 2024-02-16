@@ -20,7 +20,6 @@ namespace Carbon
 {
     public partial class MainForm : Form
     {
-        // MainForm.cs
         private TerminalForm terminalForm;
         private string currentFilePath;
         private ChromiumWebBrowser chromiumBrowser;
@@ -32,7 +31,7 @@ namespace Carbon
             InitializeChromiumBrowser();
             InitializeHtmlTextBox();
             InitializeTerminalForm();
-            InitializeToolbar(); // New method to initialize the toolbar
+            InitializeToolbar(); 
             KeyPreview = true;
             /*
             Font customFont = LoadCustomFont("YourNamespace.font.OTF");
@@ -42,21 +41,21 @@ namespace Carbon
         {
             terminalForm = new TerminalForm();
             terminalForm.FormClosing += TerminalForm_FormClosing;
-            terminalForm.Hide(); // Hide the terminal form initially
+            terminalForm.Hide(); 
         }
         private void TerminalForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true; // Cancel the form closing
-            Hide(); // Hide the terminal form instead of closing it
+            e.Cancel = true;
+            Hide(); 
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            // Check if the '~' key is pressed
+
             if (keyData == Keys.Oemtilde)
             {
                 terminalForm.ToggleVisibility();
-                return true; // Signal that the key press is handled
+                return true; 
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
@@ -78,14 +77,14 @@ namespace Carbon
             }
             else
             {
-                // Handle the case when the file doesn't exist
+         
                 chromiumBrowser.Load("about:blank");
             }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Load a new temporary HTML file by default
+        
             LoadTemporaryHtmlFile();
         }
 
@@ -104,8 +103,8 @@ namespace Carbon
             htmlTextBox.Multiline = true;
         //    htmlTextBox.ScrollBars = ScrollBars.Both;
             htmlTextBox.Dock = DockStyle.Left;
-            htmlTextBox.Width = Width / 2; // Default width, adjust as needed
-            htmlTextBox.TextChanged += HtmlTextBox_TextChanged; // Handle TextChanged event
+            htmlTextBox.Width = Width / 2; // Default width
+            htmlTextBox.TextChanged += HtmlTextBox_TextChanged;
             Controls.Add(htmlTextBox);
             htmlTextBox.Language = FastColoredTextBoxNS.Language.HTML;
             htmlTextBox.LineNumberColor = Color.Black;
@@ -113,7 +112,7 @@ namespace Carbon
 
         private void HtmlTextBox_TextChanged(object sender, EventArgs e)
         {
-            // Update both the browser and file content immediately when text changes
+      
             UpdateHtmlFile();
             UpdateBrowser();
         }
@@ -147,13 +146,12 @@ namespace Carbon
             }
             else
             {
-                // Handle the case when the file doesn't exist
+   
                 chromiumBrowser.Load("about:blank");
             }
         }
 
 
-        // Handle resizing to adjust the width of the TextBox
         private void MainForm_Resize(object sender, EventArgs e)
         {
             htmlTextBox.Width = Width / 2;
@@ -165,36 +163,30 @@ namespace Carbon
         }
         private void InitializeToolbar()
         {
-            // Create ToolStrip and ToolStripButtons
+
             ToolStrip toolStrip = new ToolStrip();
             ToolStripButton saveButton = new ToolStripButton("Save", null, SaveButtonClick);
             ToolStripButton openButton = new ToolStripButton("Open", null, OpenButtonClick);
             ToolStripDropDownButton moreOptionsButton = new ToolStripDropDownButton("More Options");
 
-            // Set font and size for ToolStrip
+
             Font customFont = LoadCustomFont("Carbon.font.OTF");
             toolStrip.Font = new Font(customFont.FontFamily, 12f);
 
-            // Set font for ToolStripButtons
+          
             saveButton.Font = new Font(customFont.FontFamily, 12f);
             openButton.Font = new Font(customFont.FontFamily, 12f);
 
-            // Add ToolStripButtons to ToolStrip
+
             toolStrip.Items.Add(saveButton);
             toolStrip.Items.Add(openButton);
 
-            // Add More Options button with custom font
             moreOptionsButton.Font = new Font(customFont.FontFamily, 12f);
             moreOptionsButton.DropDownItems.Add("Option 1", null, Option1Click);
             moreOptionsButton.DropDownItems.Add("Option 2", null, Option2Click);
-
-            // Add More Options button to ToolStrip
             toolStrip.Items.Add(moreOptionsButton);
-
-            // Dock ToolStrip at the top
             toolStrip.Dock = DockStyle.Top;
 
-            // Add ToolStrip to MainForm
             Controls.Add(toolStrip);
         }
 
@@ -213,13 +205,10 @@ namespace Carbon
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Save the contents of the TextBox to the selected file
                     File.WriteAllText(saveFileDialog.FileName, htmlTextBox.Text);
 
-                    // Update the current file path
                     currentFilePath = saveFileDialog.FileName;
 
-                    // Optionally, update the title bar with the new file name
                     UpdateFormTitle();
                 }
             }
@@ -227,16 +216,13 @@ namespace Carbon
 
         private void UpdateFormTitle()
         {
-            // Check if a file is currently open
             if (!string.IsNullOrEmpty(currentFilePath))
             {
-                // Display the file name in the title bar
                 string fileName = Path.GetFileName(currentFilePath);
                 Text = $"Carbon - {fileName}";
             }
             else
             {
-                // No file is open, display the default title
                 Text = "Carbon";
             }
         }
@@ -256,16 +242,12 @@ namespace Carbon
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Load the contents of the selected file into the TextBox
                     LoadHtmlFileIntoTextBox(openFileDialog.FileName);
 
-                    // Update the current file path
                     currentFilePath = openFileDialog.FileName;
 
-                    // Optionally, update the title bar with the new file name
                     UpdateFormTitle();
 
-                    // Load the HTML file into the browser
                     LoadHtmlFileIntoBrowser(currentFilePath);
                 }
             }
@@ -273,13 +255,11 @@ namespace Carbon
 
         private void Option1Click(object sender, EventArgs e)
         {
-            // Implement option 1 logic
             MessageBox.Show("Option 1 clicked.");
         }
 
         private void Option2Click(object sender, EventArgs e)
         {
-            // Implement option 2 logic
             MessageBox.Show("Option 2 clicked.");
         }
         private Font LoadCustomFont(string resourceName)
@@ -303,7 +283,6 @@ namespace Carbon
                 }
                 else
                 {
-                    // Handle the case when the font resource is not found
                     return SystemFonts.DefaultFont;
                 }
             }
