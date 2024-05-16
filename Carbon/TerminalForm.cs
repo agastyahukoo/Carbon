@@ -22,16 +22,15 @@ namespace Carbon
         }
         private void TerminalForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true; // Cancel the form closing
-            Hide(); // Hide the terminal form instead of closing it
+            e.Cancel = true; 
+            Hide(); 
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            // Check if the '~' key is pressed
             if (keyData == Keys.Oemtilde)
             {
                 ToggleVisibility();
-                return true; // Signal that the key press is handled
+                return true; 
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
